@@ -1,14 +1,21 @@
 import styled from 'styled-components';
+import fundo from '../Home/img/f3.jpg';
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: yellow;
+  background-image:url(${fundo});
+  background-size: cover;
   width: 100%;
   height: 100%;
-  
+
+  #register{
+  color: black;
+  font-size: 16px;
+  }
+
 `
 export const LoginTilte = styled.div`
   display: flex;
@@ -58,4 +65,5 @@ export const LoginFormInput = styled.div`
     box-shadow: 0px 0px 5px #31d1c5;
   }
 
+  
 `

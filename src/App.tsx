@@ -1,10 +1,8 @@
 
-import Home from './pages/Home/';
-import Login from './pages/Login';
-import Routes from './routes';
+import OtherRoutes from './routes';
 
 function App() {
-  return <Home />;
+  return <OtherRoutes />;
 }
 
 export default App;

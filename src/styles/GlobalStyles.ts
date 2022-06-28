@@ -21,5 +21,9 @@ export const GlobalStyles = createGlobalStyle`
         cursor: pointer;
         text-decoration: none;
     }
+    a {
+        
+        text-decoration: none;
+    }
 
 `
