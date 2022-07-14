@@ -67,7 +67,7 @@ export const Wrapper = styled.div`
 
   #divBusca{
     display: flex;
-    margin-left: 70px;
+    margin-left: 100px;
     justify-content: center;  
     align-items: center;  
     margin-bottom: 10px;

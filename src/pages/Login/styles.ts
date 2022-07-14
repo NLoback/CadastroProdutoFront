@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import fundo from '../Home/img/f3.jpg';
+import fundo from './img/fundo.jpg';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -10,9 +10,10 @@ export const Wrapper = styled.div`
   background-size: cover;
   width: 100%;
   height: 100%;
+  color: white;
 
   #register{
-  color: black;
+  color: #fff;
   font-size: 16px;
   }
 
@@ -23,6 +24,7 @@ export const LoginTilte = styled.div`
   justify-content: center;
   align-items: center;
   margin: 20px;
+  font-family: 'Roboto', sans-serif;
 `
 export const LoginForm = styled.div`
   display: flex;
@@ -42,27 +44,36 @@ export const LoginFormInput = styled.div`
   input {
   width: 250px;
   height: 40px;
-  border: 1px solid #ccc;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
   border-radius: 4px;
+  border: none;
+  background-color: #fff5;
   padding: 0 10px;
   margin: 10px;
+
+    &:focus {
+      outline: none;
+    }
   }
+
   button {
-  
-    width: 200px;
-    height: 40px;
-    background: linear-gradient(to right, black 50%, #ffffff 50%);
+    width: 100px;
+    height: 30px;
+    background: linear-gradient(to right, #fff4 50%, #fff6 50%);
     background-size: 200% 100%;
     background-position: right bottom;
-    
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
     cursor: pointer;
     transition: all 900ms ease-out;
-    margin: 20px;
+    margin: 10px;
   }
+
   button:hover {
     background-position: left bottom;
     color: #fff;
-    box-shadow: 0px 0px 5px #31d1c5;
+    box-shadow: 0px 0px 5px #fff;
   }
 
   

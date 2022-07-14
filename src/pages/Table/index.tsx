@@ -3,50 +3,52 @@ import * as S from './styles';
 import { useState } from 'react';
 import { BsTrash } from 'react-icons/bs';
 import { RiEditFill } from 'react-icons/ri';
-import Modal from '../Modal';
+import Modal from '../../components/ModalConfirmation';
 
 //interface tabela com os dados
-interface ITableData {
+export interface ITableData {
+  id: string;
   produto: string;
-  preco: string;
-  quantidade: string;
-  categoria: string;
-  compra: string;
+  perecivel: boolean;
+  fabricacao: string;
   validade: string;
+  preco: number;
 }
-//interface com os dados do modal
+//propriedade da tabela
 interface IProps {
+  id: string;
   data: ITableData[];
-  onModalOpen: (isOpen: boolean) => void;
-  modalIsOpen: boolean;
+  onUpdateModalOpen: (isOpen: boolean, product: ITableData) => void;
+  modalUpdateIsOpen: boolean;
+  onDeleteModalOpen: (isOpen: boolean, id: string) => void;
+  modalDeleteIsOpen: boolean;
+
 }
 
-export const Tabela = ({ data, onModalOpen, modalIsOpen }: IProps) => {
-  const [query, setQuery] = useState('');
-  const [showModal, setShowModal] = useState(false);
-  const toggleModal = () => setShowModal(!showModal);
-  return (
-    <S.Wrapper>
 
-      <Modal
-        shouldShow={showModal}
-        onClose={toggleModal}
-        title={"Cadastro de Produtos"}
-      />
+export const Tabela = ({ data, onUpdateModalOpen, modalUpdateIsOpen, onDeleteModalOpen, modalDeleteIsOpen }: IProps) => {
+  const [query, setQuery] = useState('');
+
+
+
+  return (
+
+
+    <S.Wrapper>
 
       <div id="divBusca">
         <input placeholder='Buscar' onChange={event => setQuery(event.target.value)} />
       </div>
+
       <S.Table>
 
         <thead>
           <tr>
             <th>Produto</th>
-            <th>Preço</th>
-            <th className='quantidade'>Qtd</th>
-            <th>Categoria</th>
-            <th>Compra</th>
+            <th>Produto Perecível</th>
+            <th>Data de Fabricação</th>
             <th>Validade</th>
+            <th>Preço</th>
             <th className='cancel'></th>
           </tr>
         </thead>
@@ -58,24 +60,23 @@ export const Tabela = ({ data, onModalOpen, modalIsOpen }: IProps) => {
             } else if
               (table.produto.toLowerCase().includes(query.toLowerCase())) {
               return table;
-            } else if
-              (table.categoria.toLowerCase().includes(query.toLowerCase())) {
-              return table;
             }
-          }).map((item, index) => (
-            <tr key={index}>
-              <td>{item.produto}</td>
-              <td>{item.preco}</td>
-              <td>{item.quantidade}</td>
-              <td>{item.categoria}</td>
-              <td>{item.compra}</td>
-              <td>{item.validade}</td>
-              <td className='Buttons'>
-                <button className='DeleteButton'><BsTrash /></button>
+          }).map((item) => (
+            <tr key={item.id}>
 
-                <button className='EditButton' onClick={() => onModalOpen(!modalIsOpen)}><RiEditFill /></button>
+              <td>{item.produto}</td>
+              <td>{item.perecivel}</td>
+              <td>{item.fabricacao}</td>
+              <td>{item.validade}</td>
+              <td>{item.preco}</td>
+              <td className='Buttons'>
+
+                <button className='DeleteButton' onClick={() => onDeleteModalOpen(!modalDeleteIsOpen, item.id)}><BsTrash /></button>
+
+                <button className='EditButton' onClick={() => onUpdateModalOpen(!modalUpdateIsOpen, item)}><RiEditFill /></button>
               </td>
             </tr>
+
           ))}
         </tbody>
       </S.Table>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import fundo from "./img/f3.jpg";
+import home from "./img/home.png";
 
 
 export const Container = styled.div`
@@ -8,10 +8,9 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  background-image:url(${fundo});
   object-fit: contain;
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)), url(${home});
   background-size: cover;
-  background-repeat: no-repeat;
 
 `
 export const Menu = styled.div`
@@ -25,20 +24,20 @@ export const Menu = styled.div`
   font-size: 20px;
   color: white;
   font-family:'nunito', sans-serif;
-  background-color: #1c4078;
+  background-color: #500534 ;
   box-shadow: 0px 2px 10px #000;
   border-radius: 10px;
   margin-top: 10px;
 
   button {
-    background: #fff;
+    background: #fff5;
     border: none;
     border-radius: 5px;
     width: 100px;
     height: 40px;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
-    color: black;
+    color: #fff;
     cursor: pointer;
     transition: all 0.8s;
     &:hover {
